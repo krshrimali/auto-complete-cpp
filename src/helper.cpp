@@ -16,7 +16,7 @@ vector<string> readFile(string fileName) {
     }
     file.close();
   } else {
-    cout << "Unable to open file";
+    cout << "Unable to open file with filename: " << fileName << "\n";
   }
   return fileOutput;
 }

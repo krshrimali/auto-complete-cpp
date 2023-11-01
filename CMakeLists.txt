@@ -7,7 +7,7 @@ include(CTest)
 enable_testing()
 
 include_directories("include")
-add_library(auto-complete-cpp src/main.cpp src/act.cpp)
+add_executable(auto-complete-cpp src/main.cpp src/act.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

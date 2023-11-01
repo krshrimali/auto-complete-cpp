@@ -6,7 +6,12 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  vector<string> fileOutput = readFile("input.txt");
+  if (argc < 3) {
+    cout << "Usage: ./main <input_file> <input_prefix>\n";
+    return 1;
+  }
+
+  vector<string> fileOutput = readFile(argv[1]);
 
   // AutoComplete Tree
   ACT *tree = new ACT();
@@ -27,7 +32,7 @@ int main(int argc, char *argv[]) {
       tree->insert(word);
     }
   }
-  vector<string> suggestions = tree->autoComplete("h");
+  vector<string> suggestions = tree->autoComplete(argv[2]);
   if (suggestions.empty()) {
     cout << "No suggestions found\n";
   } else {
