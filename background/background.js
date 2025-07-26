@@ -102,7 +102,10 @@ chrome.runtime.onSuspend.addListener(() => {
 });
 
 // Keep service worker alive if needed (for debugging)
-if (process.env.NODE_ENV === 'development') {
+// Note: Only enable this during development to prevent service worker from sleeping
+const DEVELOPMENT_MODE = false; // Set to true during development if needed
+
+if (DEVELOPMENT_MODE) {
     setInterval(() => {
         console.log('GitHub PR AutoComplete: Service worker keepalive');
     }, 20000);
